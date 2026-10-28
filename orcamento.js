@@ -1,13 +1,18 @@
 const formulario = document.querySelector("#formulario");
 const inputNome = document.querySelector("#nome");
-const inputServico = document.querySelector("#servico");
+const inputProduto = document.querySelector("#produto");
 const inputQuantidade = document.querySelector("#quantidade");
 const resultado = document.querySelector("#resultado");
 
-const servicos = {
-  formatacao: { nome: "Formatação", preco: 120 },
-  limpeza: { nome: "Limpeza", preco: 80 },
-  instalacao: { nome: "Instalação", preco: 50 },
+const produtos = {
+  notebook: { nome: "Notebook IdeaPad 3", preco: 2799 },
+  mouse: { nome: "Mouse Gamer RGB", preco: 129.9 },
+  teclado: { nome: "Teclado Mecânico", preco: 249.9 },
+  headset: { nome: "Headset com Microfone", preco: 189.9 },
+  ssd: { nome: "SSD 480 GB", preco: 530.00 },
+  memoria: { nome: "Memória RAM 8 GB", preco: 139.9 },
+  roteador: { nome: "Roteador Wi-Fi", preco: 219.9 },
+  mochila: { nome: "Mochila para Notebook", preco: 159.9 },
 };
 
 const formatarReal = (valor) =>
@@ -20,7 +25,7 @@ formulario.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const nome = inputNome.value.trim();
-  const servico = servicos[inputServico.value];
+  const produto = produtos[inputProduto.value];
   const quantidadeDigitada = inputQuantidade.value.trim();
   const quantidade = Number(quantidadeDigitada);
 
@@ -37,8 +42,8 @@ formulario.addEventListener("submit", (event) => {
     return;
   }
 
-  if (!servico) {
-    resultado.textContent = "Selecione um serviço válido.";
+  if (!produto) {
+    resultado.textContent = "Selecione um produto válido.";
     resultado.classList.add("alert-warning");
     return;
   }
@@ -53,10 +58,10 @@ formulario.addEventListener("submit", (event) => {
     return;
   }
 
-  const total = servico.preco * quantidade;
+  const total = produto.preco * quantidade;
   resultado.textContent =
-    `Cliente: ${nome} | Serviço: ${servico.nome} | ` +
-    `Quantidade: ${quantidade} | Preço unitário: ${formatarReal(servico.preco)} | ` +
+    `Cliente: ${nome} | Produto: ${produto.nome} | ` +
+    `Quantidade: ${quantidade} | Preço unitário: ${formatarReal(produto.preco)} | ` +
     `Valor total: ${formatarReal(total)}`;
   resultado.classList.add("alert-success");
 });

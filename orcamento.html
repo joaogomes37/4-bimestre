@@ -14,6 +14,19 @@
     <link rel="stylesheet" href="stlye.css" />
   </head>
   <body>
+  <nav class="navbar navbar-expand-md bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">TechFix</a>
+      <div class="navbar-nav">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="produtos.html">Produtos</a>
+        <a class="nav-link active" href="orcamento.html" aria-current="page">
+          Orçamento
+        </a>
+      </div>
+    </div>
+  </nav>
+
   <main class="container py-5">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-lg-6">
@@ -38,13 +51,19 @@
             </div>
 
             <div class="mb-3">
-              <label for="servico" class="form-label">
-                Serviço
+              <label for="produto" class="form-label">
+                Produto
               </label>
-              <select id="servico" class="form-select" required>
-                <option value="formatacao">Formatação — R$ 120,00</option>
-                <option value="limpeza">Limpeza — R$ 80,00</option>
-                <option value="instalacao">Instalação — R$ 50,00</option>
+              <select id="produto" class="form-select" required>
+                <option value="" selected disabled>Selecione um produto</option>
+                <option value="notebook">Notebook IdeaPad 3 — R$ 2.799,00</option>
+                <option value="mouse">Mouse Gamer RGB — R$ 129,90</option>
+                <option value="teclado">Teclado Mecânico — R$ 249,90</option>
+                <option value="headset">Headset com Microfone — R$ 189,90</option>
+                <option value="ssd">SSD 480 GB — R$ 530,00</option>
+                <option value="memoria">Memória RAM 8 GB — R$ 139,90</option>
+                <option value="roteador">Roteador Wi-Fi — R$ 219,90</option>
+                <option value="mochila">Mochila para Notebook — R$ 159,90</option>
               </select>
             </div>
 
