@@ -10,7 +10,7 @@ const produtos = {
   teclado: { nome: "Teclado Mecânico", preco: 249.9 },
   headset: { nome: "Headset com Microfone", preco: 189.9 },
   ssd: { nome: "SSD 480 GB", preco: 530.00 },
-  memoria: { nome: "Memória RAM 8 GB", preco: 139.9 },
+  memoria: { nome: "Memória RAM 8 GB", preco: 329.9 },
   roteador: { nome: "Roteador Wi-Fi", preco: 219.9 },
   mochila: { nome: "Mochila para Notebook", preco: 159.9 },
 };

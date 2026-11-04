@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-    --azul: #4361ee;
-    --azul-escuro: #3048c5;
-    --fundo: #f4f7fc;
-    --texto: #182238;
-    --texto-secundario: #64748b;
-    --borda: #dce3ef;
+    --grafite: #171717;
+    --laranja: #ff8a24;
+        --fundo: #f7f2e8;
+    --texto: #171717;
+    --texto-secundario: #666666;
+    --borda: #e5e5e5;
     --branco: #ffffff;
+    --laranja-suave: #fff3e8;
+    --destaque: #e66b16;
 }
 * {
     box-sizing: border-box;
@@ -18,7 +20,7 @@ body {
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
     color: var(--texto);
-    background: linear-gradient(135deg, #f4f7fc, #eaf0ff);
+        background: #f7f2e8;
 }
 
 
@@ -136,7 +138,7 @@ main.container {
     font-family: inherit;
     font-size: 15px;
     font-weight: 600;
-    background: linear-gradient(135deg, #4361ee, #5b55f5);
+    background: linear-gradient(135deg, #4361ee, #bb3f05);
     border: none;
     border-radius: 9px;
     box-shadow: 0 5px 12px rgba(67, 97, 238, 0.2);
@@ -144,7 +146,7 @@ main.container {
 }
 
 #botao:hover {
-    background: linear-gradient(135deg, #3048c5, #4942df);
+    background: linear-gradient(135deg, #3048c5, #c05711);
     transform: translateY(-2px);
     box-shadow: 0 8px 18px rgba(67, 97, 238, 0.28);
 }
@@ -235,6 +237,151 @@ main.container {
     .form-control {
         font-size: 16px;
     }
+}
+
+/* Tema Cyber: paleta grafite, laranja, branco e fundo claro em todas as páginas. */
+body {
+    color: var(--texto);
+    background: var(--fundo);
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar {
+    background: var(--branco) !important;
+    border-bottom: 1px solid var(--borda);
+    box-shadow: 0 3px 14px rgb(36 36 36 / 6%);
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: var(--grafite) !important;
+}
+
+.navbar .nav-link {
+    color: var(--texto-secundario);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
+    color: var(--grafite) !important;
+    background: var(--laranja-suave);
+}
+
+main.container:not(.catalog-main) {
+    background: var(--branco);
+    border-color: var(--borda);
+    box-shadow: 0 12px 32px rgb(36 36 36 / 7%);
+}
+
+h1,
+#titulo,
+.catalog-heading h1,
+.card-title,
+.product-card .card-title {
+    color: var(--grafite);
+}
+
+.catalog-eyebrow,
+.card-category {
+    color: #a94f00;
+}
+
+.form-label {
+    color: var(--grafite);
+}
+
+.form-control,
+.form-select {
+    color: var(--grafite);
+    background-color: var(--branco);
+    border-color: var(--borda);
+}
+
+.form-control:hover,
+.form-select:hover {
+    border-color: var(--laranja);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--laranja);
+    box-shadow: 0 0 0 4px rgb(255 138 36 / 20%);
+}
+
+#botao,
+.btn-primary,
+.catalog-main .btn-primary {
+    color: var(--grafite);
+    background: var(--laranja);
+    border: 1px solid var(--laranja);
+    box-shadow: 0 5px 12px rgb(36 36 36 / 12%);
+}
+
+#botao:hover,
+.btn-primary:hover,
+.catalog-main .btn-primary:hover {
+    color: var(--branco);
+    background: var(--grafite);
+    border-color: var(--grafite);
+    box-shadow: 0 8px 18px rgb(36 36 36 / 18%);
+}
+
+#botao:focus-visible,
+.btn-primary:focus-visible {
+    outline: 3px solid rgb(255 138 36 / 45%);
+    outline-offset: 3px;
+}
+
+.product-card,
+.card {
+    background: var(--branco);
+    border-color: var(--borda);
+}
+
+.product-card:hover,
+.card:hover {
+    border-color: var(--laranja);
+    box-shadow: 0 12px 28px rgb(36 36 36 / 12%);
+}
+
+.product-visual {
+    background: var(--fundo);
+}
+
+.catalog-heading p,
+.product-description,
+.catalog-note {
+    color: var(--texto-secundario);
+}
+
+.product-price,
+.card-price {
+    display: inline-block;
+    padding: 5px 9px;
+    color: var(--grafite);
+    background: var(--laranja-suave);
+    border-radius: 6px;
+}
+
+#resultado.alert-success {
+    color: #166534;
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+#resultado.alert-danger {
+    color: #991b1b;
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+#resultado.alert-warning {
+    color: #854d0e;
+    background: #fefce8;
+    border-color: #fde68a;
 }
 
 
@@ -458,6 +605,779 @@ footer {
     .card-title,
     .product-card .card-title {
         font-size: 20px;
+    }
+}
+
+/* Paleta final: preto e laranja, aplicada sobre o tema compartilhado. */
+body {
+    color: #000000;
+    background: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #000000 !important;
+}
+
+.navbar .nav-link {
+    color: #333333 !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
+    color: #000000 !important;
+    background: #ff8a24;
+}
+
+main.container:not(.catalog-main),
+.card,
+.product-card {
+    color: #000000;
+    background: #ffffff;
+    border-color: #e5e5e5;
+}
+
+h1,
+#titulo,
+.catalog-heading h1,
+.card-title,
+.product-card .card-title,
+.form-label {
+    color: #000000 !important;
+}
+
+.catalog-eyebrow,
+.card-category {
+    color: #a94f00 !important;
+}
+
+.catalog-heading p,
+.product-description,
+.catalog-note,
+.navbar .nav-link {
+    color: #555555;
+}
+
+.form-control,
+.form-select {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #d6d6d6;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #ff8a24;
+    box-shadow: 0 0 0 4px rgb(255 138 36 / 22%);
+}
+
+#botao,
+.btn-primary,
+.catalog-main .btn-primary {
+    color: #000000 !important;
+    background: #ff8a24 !important;
+    border-color: #ff8a24 !important;
+}
+
+#botao:hover,
+.btn-primary:hover,
+.catalog-main .btn-primary:hover {
+    color: #ffffff !important;
+    background: #000000 !important;
+    border-color: #000000 !important;
+}
+
+.product-visual {
+    background: #f5f5f5;
+}
+
+.product-price,
+.card-price {
+    color: #000000 !important;
+    background: #ff8a24;
+    border-radius: 6px;
+}
+
+.product-card:hover,
+.card:hover {
+    border-color: #ff8a24;
+    box-shadow: 0 12px 28px rgb(0 0 0 / 12%);
+}
+
+/* Layouts ampliados para início e simulador de orçamento. */
+main.container.home-main,
+main.container.budget-main {
+    width: min(100% - 48px, 1180px);
+    max-width: 1180px;
+    margin: 0 auto !important;
+    padding: clamp(42px, 7vw, 82px) 0 64px;
+    background: transparent;
+        background: #f7f2e8;
+    border-radius: 0;
+    box-shadow: none;
+    animation: none;
+}
+
+.home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.82fr);
+    align-items: center;
+    gap: clamp(36px, 7vw, 88px);
+}
+
+.section-kicker,
+.panel-kicker {
+    margin: 0 0 14px;
+    color: #a94f00;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 13px;
+    background: #fff0e1;
+    border-radius: 999px;
+}
+
+.section-kicker span {
+    width: 8px;
+    height: 8px;
+    background: #ff8a24;
+    border-radius: 50%;
+}
+
+.home-intro h1,
+.budget-heading h1 {
+    max-width: 700px;
+    margin: 0 0 20px;
+    color: #000000;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 800;
+    letter-spacing: -0.065em;
+    line-height: 1.04;
+}
+
+.home-intro h1 span,
+.budget-heading h1 span {
+    color: #e97812;
+}
+
+.home-lead,
+.budget-heading > p:last-child {
+    max-width: 560px;
+    margin: 0;
+    color: #5d5d5d;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.home-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.home-tags span {
+    padding: 8px 13px;
+    color: #222222;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.age-panel,
+.budget-card {
+    padding: clamp(25px, 4vw, 38px);
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-top: 4px solid #ff8a24;
+    border-radius: 22px;
+    box-shadow: 0 18px 50px rgb(0 0 0 / 8%);
+}
+
+.age-panel-heading,
+.budget-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.age-icon,
+.budget-card-icon {
+    display: grid;
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    place-items: center;
+    color: #000000;
+    background: #ff8a24;
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.age-panel-heading .panel-kicker,
+.budget-card-heading .panel-kicker {
+    margin-bottom: 5px;
+}
+
+.age-panel-heading h2,
+.budget-card-heading h2 {
+    margin: 0;
+    color: #000000;
+    font-size: 22px;
+    font-weight: 750;
+    letter-spacing: -0.03em;
+}
+
+.age-panel .form-label,
+.budget-card .form-label {
+    margin-bottom: 9px;
+    color: #222222 !important;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.age-panel .form-control,
+.budget-card .form-control,
+.budget-card .form-select {
+    min-height: 52px;
+    padding: 12px 15px;
+    border: 1px solid #dedede;
+    border-radius: 11px;
+    font-size: 15px;
+}
+
+.age-panel .form-control:focus,
+.budget-card .form-control:focus,
+.budget-card .form-select:focus {
+    border-color: #ff8a24;
+    box-shadow: 0 0 0 4px rgb(255 138 36 / 18%);
+}
+
+.age-panel #botao,
+.budget-card .btn-primary {
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.age-panel #botao span,
+.budget-card .btn-primary span {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.privacy-note {
+    margin: 18px 0 0;
+    color: #666666;
+    font-size: 12px;
+    text-align: center;
+}
+
+.privacy-note span {
+    margin-right: 5px;
+    color: #e97812;
+    font-size: 9px;
+}
+
+.home-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: clamp(44px, 7vw, 82px);
+    padding-top: 28px;
+    border-top: 1px solid #dedede;
+}
+
+.highlight-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.highlight-number {
+    color: #e97812;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.highlight-item h2 {
+    margin: 0 0 6px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.highlight-item p {
+    max-width: 250px;
+    margin: 0;
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.budget-heading {
+    max-width: 760px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.budget-heading h1 {
+    font-size: clamp(38px, 5.5vw, 60px);
+}
+
+.budget-layout {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.budget-card {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.budget-card-heading {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.budget-card-heading > div {
+    text-align: center;
+}
+
+.budget-card-icon {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+}
+
+.budget-card #formulario .mb-3 {
+    margin-bottom: 20px !important;
+}
+
+.budget-card #formulario {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.budget-card .form-label {
+    display: block;
+    text-align: center;
+}
+
+.budget-card #resultado {
+    max-width: 560px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.budget-disclaimer {
+    margin: 22px 0 0;
+    color: #666666;
+    font-size: 12px;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .home-hero {
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+        gap: 30px;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .home-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .home-intro h1 {
+        max-width: 580px;
+    }
+
+    .home-highlights {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    main.container.home-main,
+    main.container.budget-main {
+        width: calc(100% - 32px);
+        padding: 34px 0 44px;
+    }
+
+    .home-intro h1,
+    .budget-heading h1 {
+        font-size: clamp(36px, 11vw, 48px);
+    }
+
+    .home-lead,
+    .budget-heading > p:last-child {
+        font-size: 15px;
+    }
+
+    .age-panel,
+    .budget-card {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    .age-panel-heading h2,
+    .budget-card-heading h2 {
+        font-size: 19px;
+    }
+
+    .budget-heading {
+        margin-bottom: 26px;
+    }
+}
+
+/* Paleta solicitada: fundo geral creme suave, áreas brancas e acentos laranja. */
+body {
+    color: #171717;
+    background: #f7f2e8;
+}
+
+main.container:not(.catalog-main) {
+    color: #171717;
+    background: #f7f2e8;
+    border-color: #e5e5e5;
+}
+
+main.container.home-main,
+main.container.budget-main {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.navbar,
+.age-panel,
+.budget-card,
+.card,
+.product-card {
+    background-color: #ffffff;
+    border-color: #e5e5e5;
+}
+
+h1,
+h2,
+h3,
+#titulo,
+.form-label,
+.card-title,
+.product-card .card-title {
+    color: #171717;
+}
+
+.section-kicker,
+.panel-kicker,
+.catalog-eyebrow,
+.card-category,
+.highlight-number,
+.home-intro h1 span,
+.budget-heading h1 span,
+.privacy-note span,
+.aside-label,
+.aside-footnote span,
+.budget-steps li > span {
+    color: #e66b16;
+}
+
+.age-icon,
+.budget-card-icon,
+.product-price,
+.card-price {
+    color: #171717;
+    background-color: #ff8a24;
+}
+
+.navbar .nav-link,
+.form-control,
+.form-select {
+    color: #171717;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
+    color: #171717 !important;
+    background: #ff8a24;
+}
+
+.form-control,
+.form-select,
+.age-panel,
+.budget-card,
+.product-card,
+.card {
+    border-color: #e5e5e5;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #e66b16;
+    box-shadow: 0 0 0 4px rgb(230 107 22 / 18%);
+}
+
+#botao,
+.btn-primary,
+.catalog-main .btn-primary {
+    color: #171717 !important;
+    background: #ff8a24 !important;
+    border-color: #ff8a24 !important;
+}
+
+#botao:hover,
+.btn-primary:hover,
+.catalog-main .btn-primary:hover {
+    color: #ffffff !important;
+    background: #171717 !important;
+    border-color: #171717 !important;
+}
+
+.product-card:hover,
+.card:hover {
+    border-color: #e66b16;
+}
+
+/* Acabamento simples: menos efeitos decorativos e mais foco no conteúdo. */
+.navbar {
+    padding: 12px 0;
+    box-shadow: none;
+}
+
+.navbar-brand {
+    font-size: 22px;
+    letter-spacing: 0;
+}
+
+.navbar .nav-link {
+    padding: 8px 10px !important;
+    border-radius: 4px;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    background: #f7f2e8;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
+    background: transparent;
+    box-shadow: inset 0 -2px #e66b16;
+}
+
+main.container.home-main,
+main.container.budget-main {
+    width: min(100% - 32px, 760px);
+    max-width: 760px;
+    padding: 52px 0 56px;
+}
+
+.home-hero {
+    display: block;
+}
+
+.home-intro,
+.budget-heading {
+    max-width: 650px;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+.home-intro h1,
+.budget-heading h1 {
+    max-width: none;
+    margin: 0 0 12px;
+    color: #171717;
+    font-size: clamp(30px, 5vw, 42px);
+    font-weight: 650;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+}
+
+.home-intro h1 span,
+.budget-heading h1 span {
+    color: inherit;
+}
+
+.home-lead,
+.budget-heading > p:last-child {
+    max-width: 560px;
+    margin: 0 auto;
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.age-panel,
+.budget-card {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.age-panel-heading,
+.budget-card-heading {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    margin: 0 0 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+}
+
+.age-panel-heading h2,
+.budget-card-heading h2 {
+    margin: 0;
+    color: #171717;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.age-panel .form-label,
+.budget-card .form-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #333333 !important;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.age-panel .form-control,
+.budget-card .form-control,
+.budget-card .form-select {
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid #d6d6d6;
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+.age-panel #botao,
+.budget-card .btn-primary {
+    min-height: 46px;
+    padding: 10px 16px;
+    color: #171717 !important;
+    background: #ff8a24 !important;
+    border: 1px solid #ff8a24 !important;
+    border-radius: 6px;
+    box-shadow: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.age-panel #botao:hover,
+.budget-card .btn-primary:hover {
+    color: #ffffff !important;
+    background: #e66b16 !important;
+    border-color: #e66b16 !important;
+    transform: none;
+    box-shadow: none;
+}
+
+.budget-card #formulario {
+    max-width: none;
+}
+
+.budget-card #resultado,
+.age-panel #resultado {
+    text-align: left;
+}
+
+.budget-disclaimer {
+    margin-top: 16px;
+    color: #666666;
+    text-align: center;
+}
+
+.product-card,
+.card {
+    border-radius: 8px;
+    box-shadow: none;
+    transition: border-color 150ms ease;
+}
+
+.product-card:hover,
+.card:hover {
+    border-color: #e66b16;
+    box-shadow: none;
+    transform: none;
+}
+
+.product-card .card-title {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.catalog-heading h1 {
+    color: #171717;
+    font-size: clamp(30px, 5vw, 40px);
+    font-weight: 650;
+    letter-spacing: -0.035em;
+}
+
+.product-price,
+.card-price {
+    padding: 0;
+    color: #171717 !important;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 650;
+}
+
+@media (max-width: 576px) {
+    main.container.home-main,
+    main.container.budget-main {
+        width: calc(100% - 32px);
+        padding: 36px 0 44px;
+    }
+
+    .age-panel,
+    .budget-card {
+        padding: 22px 18px;
     }
 }
     

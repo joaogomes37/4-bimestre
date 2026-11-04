@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechFix — Verificador de idade</title>
+    <title>Cyber — Verificador de idade</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -17,38 +17,49 @@
     <nav class="navbar navbar-expand-md bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand" href="index.html">
-      TechFix
+      Cyber
     </a>
 
     <div class="navbar-nav">
-      <a class="nav-link" href="index.html">Início</a>
+      <a class="nav-link active" href="index.html" aria-current="page">Início</a>
       <a class="nav-link" href="produtos.html">Produtos</a>
       <a class="nav-link" href="orcamento.html">Orçamento</a>
     </div>
   </div>
 </nav>
-    <main class="container mt-5">
-      <h1 id="titulo">Verificador de idade</h1>
-
-      <form id="formulario">
-        <div class="mb-3">
-          <label for="nome" class="form-label"> Nome: </label>
-
-          <input type="text" id="nome" class="form-control" />
+    <main class="container home-main">
+      <section class="home-hero" aria-labelledby="titulo">
+        <div class="home-intro">
+          <h1 id="titulo">Verificador de idade</h1>
+          <p class="home-lead">
+            Informe seu nome e sua idade para verificar se você já é maior de idade.
+          </p>
         </div>
 
-        <div class="mb-3">
-          <label for="idade" class="form-label"> Idade: </label>
+        <section class="age-panel" aria-labelledby="age-panel-title">
+          <div class="age-panel-heading">
+            <h2 id="age-panel-title">Informe seus dados</h2>
+          </div>
 
-          <input type="number" id="idade" class="form-control" />
-        </div>
+          <form id="formulario" class="age-form">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Seu nome</label>
+              <input type="text" id="nome" class="form-control" placeholder="Ex.: Maria Silva" autocomplete="name" required />
+            </div>
 
-        <button id="botao" type="submit" class="btn btn-primary">
-          Verificar
-        </button>
-      </form>
+            <div class="mb-3">
+              <label for="idade" class="form-label">Sua idade</label>
+              <input type="number" id="idade" class="form-control" placeholder="Digite sua idade" min="0" step="1" inputmode="numeric" required />
+            </div>
 
-      <p id="resultado" class="alert d-none mt-3"></p>
+            <button id="botao" type="submit" class="btn btn-primary">
+              Verificar minha idade
+            </button>
+          </form>
+
+          <p id="resultado" class="alert d-none mt-3" role="status" aria-live="polite"></p>
+        </section>
+      </section>
     </main>
 
     <script src="script.js"></script>
