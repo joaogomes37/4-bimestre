@@ -13,6 +13,14 @@ const produtos = {
   memoria: { nome: "Memória RAM 8 GB", preco: 329.9 },
   roteador: { nome: "Roteador Wi-Fi", preco: 219.9 },
   mochila: { nome: "Mochila para Notebook", preco: 159.9 },
+  monitor: { nome: 'Monitor Full HD 24"', preco: 799.9 },
+  webcam: { nome: "Webcam Full HD", preco: 219.9 },
+  gabinete: { nome: "Gabinete Gamer", preco: 349.9 },
+  "caixa-som": { nome: "Caixa de Som USB", preco: 99.9 },
+  desktop: { nome: "Desktop para Escritório", preco: 2199.9 },
+  "placa-video": { nome: "Placa de Vídeo RTX 3060 6GB", preco: 1899.9 },
+  impressora: { nome: "Impressora Multifuncional", preco: 649.9 },
+  controle: { nome: "Controle para PC", preco: 189.9 },
 };
 
 const formatarReal = (valor) =>
