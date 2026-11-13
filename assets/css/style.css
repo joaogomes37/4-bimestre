@@ -235,6 +235,22 @@ h3 {
   border-radius: 9px;
 }
 
+.product-form-card {
+  margin-bottom: 24px;
+}
+
+.product-form-card textarea.form-control {
+  min-height: auto;
+}
+
+.product-preview {
+  width: min(100%, 220px);
+  height: 130px;
+  object-fit: cover;
+  border: 1px solid var(--borda);
+  border-radius: 7px;
+}
+
 .catalog-counter {
   margin-bottom: 20px;
   color: var(--texto-secundario);
@@ -432,6 +448,102 @@ h3 {
 .budget-card {
   max-width: 650px;
   margin: 0 auto;
+}
+
+#adicionarProduto {
+  color: var(--laranja-escuro);
+  border-color: var(--laranja-escuro);
+  font-weight: 650;
+}
+
+#adicionarProduto:hover {
+  color: var(--branco);
+  background: var(--laranja-escuro);
+}
+
+.quote-cart {
+  margin-top: 24px;
+  padding: 18px;
+  background: #fafafa;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+}
+
+.cart-heading,
+.cart-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart-heading {
+  margin-bottom: 14px;
+}
+
+.cart-heading h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cart-heading span {
+  color: var(--texto-secundario);
+  font-size: 12px;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+}
+
+.cart-item-info {
+  min-width: 0;
+}
+
+.cart-item-info strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.cart-item-info span {
+  color: var(--texto-secundario);
+  font-size: 12px;
+}
+
+.cart-empty {
+  margin: 0;
+  color: var(--texto-secundario);
+  font-size: 13px;
+}
+
+.cart-total {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--borda);
+}
+
+.cart-total span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cart-total strong {
+  color: var(--laranja-escuro);
+  font-size: 17px;
 }
 
 .budget-disclaimer {

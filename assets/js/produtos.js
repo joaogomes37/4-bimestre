@@ -1,5 +1,5 @@
 
-const produtos = [
+const produtosPadrao = [
   {
     nome: "Notebook IdeaPad 3",
     categoria: "Computadores",
@@ -114,11 +114,41 @@ const produtos = [
   }
 ];
 
+const CHAVE_PRODUTOS = "cyber-produtos";
+
+function carregarProdutos() {
+  try {
+    const produtosSalvos = JSON.parse(
+      localStorage.getItem(CHAVE_PRODUTOS)
+    );
+
+    if (Array.isArray(produtosSalvos)) {
+      return produtosSalvos;
+    }
+  } catch (erro) {
+    console.warn("Não foi possível carregar os produtos salvos.", erro);
+  }
+
+  return [...produtosPadrao];
+}
+
+const produtos = carregarProdutos();
+
+const formulario = document.querySelector("#formulario");
+const inputNome = document.querySelector("#nome");
+const inputPreco = document.querySelector("#preco");
+const inputCategoria = document.querySelector("#categoriaProduto");
+const inputDescricao = document.querySelector("#descricao");
+const inputFoto = document.querySelector("#foto");
+const previa = document.querySelector("#previa");
+let fotoBase64 = "";
+
 const listaProdutos = document.querySelector("#listaProdutos");
 const pesquisa = document.querySelector("#pesquisa");
 const categoria = document.querySelector("#categoria");
 const contador = document.querySelector("#contador");
 const mensagemVazia = document.querySelector("#mensagemVazia");
+const mensagem = document.querySelector("#mensagem");
 
 const formatarReal = (valor) => {
   return new Intl.NumberFormat("pt-BR", {
@@ -127,13 +157,28 @@ const formatarReal = (valor) => {
   }).format(valor);
 };
 
+function mostrarMensagem(texto, tipo) {
+  mensagem.textContent = texto;
+  mensagem.className = `alert alert-${tipo} mt-3`;
+}
+
 function mostrarProdutos(lista) {
   listaProdutos.innerHTML = "";
+
+  if (produtos.length === 0) {
+    mostrarMensagem("Nenhum produto cadastrado.", "secondary");
+  } else {
+    mensagem.textContent = "";
+    mensagem.className = "alert mt-3 d-none";
+  }
 
   contador.textContent =
     `${lista.length} produto(s) encontrado(s).`;
 
-  mensagemVazia.classList.toggle("d-none", lista.length !== 0);
+  mensagemVazia.classList.toggle(
+    "d-none",
+    produtos.length === 0 || lista.length !== 0
+  );
 
   lista.forEach((produto) => {
     const coluna = document.createElement("div");
@@ -202,6 +247,102 @@ function filtrarProdutos() {
 
   mostrarProdutos(filtrados);
 }
+
+inputFoto.addEventListener("change", () => {
+  const arquivo = inputFoto.files[0];
+  fotoBase64 = "";
+
+  if (!arquivo) {
+    previa.src = "";
+    previa.classList.add("d-none");
+    return;
+  }
+
+  if (!arquivo.type.startsWith("image/")) {
+    inputFoto.value = "";
+    mostrarMensagem("Selecione um arquivo de imagem válido.", "warning");
+    return;
+  }
+
+  if (arquivo.size > 1024 * 1024) {
+    inputFoto.value = "";
+    mostrarMensagem("A imagem deve ter no máximo 1 MB.", "warning");
+    return;
+  }
+
+  const leitor = new FileReader();
+
+  leitor.addEventListener("load", () => {
+    fotoBase64 = leitor.result;
+    previa.src = fotoBase64;
+    previa.classList.remove("d-none");
+  });
+
+  leitor.addEventListener("error", () => {
+    fotoBase64 = "";
+    inputFoto.value = "";
+    previa.src = "";
+    previa.classList.add("d-none");
+    mostrarMensagem("Não foi possível ler a imagem selecionada.", "warning");
+  });
+
+  leitor.readAsDataURL(arquivo);
+});
+
+formulario.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const nome = inputNome.value.trim();
+  const precoDigitado = inputPreco.value;
+  const preco = Number(precoDigitado);
+  const categoriaSelecionada = inputCategoria.value;
+
+  if (
+    nome === "" ||
+    precoDigitado === "" ||
+    !Number.isFinite(preco) ||
+    preco <= 0 ||
+    categoriaSelecionada === "" ||
+    fotoBase64 === ""
+  ) {
+    mostrarMensagem(
+      "Preencha todos os campos obrigatórios corretamente!",
+      "warning"
+    );
+    return;
+  }
+
+  const novoProduto = {
+    nome: nome,
+    categoria: categoriaSelecionada,
+    preco: preco,
+    imagem: fotoBase64,
+    descricao: inputDescricao.value.trim() || "Produto cadastrado no catálogo."
+  };
+
+  produtos.push(novoProduto);
+
+  try {
+    localStorage.setItem(CHAVE_PRODUTOS, JSON.stringify(produtos));
+  } catch (erro) {
+    produtos.pop();
+    mostrarMensagem(
+      "Não foi possível salvar. Tente uma imagem menor ou libere espaço no navegador.",
+      "warning"
+    );
+    return;
+  }
+
+  formulario.reset();
+  fotoBase64 = "";
+  previa.src = "";
+  previa.classList.add("d-none");
+  pesquisa.value = "";
+  categoria.value = "todos";
+
+  mostrarProdutos(produtos);
+  mostrarMensagem("Produto cadastrado com sucesso!", "success");
+});
 
 pesquisa.addEventListener("input", filtrarProdutos);
 categoria.addEventListener("change", filtrarProdutos);
